@@ -9,15 +9,15 @@
 - name: Ensure RabbitMQ is running
   service: name=rabbitmq-server state=started
 
-- name: Ensure the users is removed
+- name: Ensure the users are removed
   rabbitmq_user: user={{item}} state=absent
   with_items: rabbitmq_user_remove
 
-- name: Ensure the vhosts is present
+- name: Ensure the vhosts are present
   rabbitmq_vhost: name={{item}}
   with_items: rabbitmq_vhosts
 
-- name: Ensure the users is present
+- name: Ensure the users are present
   rabbitmq_user: >
       user={{item.user}}
       password={{item.password}}
